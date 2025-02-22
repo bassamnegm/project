@@ -1,17 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import Home from './screens/Home';
-import List from './screens/List';
-import Todo from './screens/Todo';
-import Product from './screens/Product';
-import MyForm from './screens/Form';
+import Login from './pages/Login';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Reg from './pages/Reg';
+import MyTab from './Tab';
 
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style='light' backgroundColor='blue' />
-      <MyForm />
-    </View>
+    <NavigationContainer>
+
+      <Stack.Navigator>
+        <Stack.Screen options={{ headerShown: false, animation: "fade_from_bottom", animationDuration: 3000 }} name='register' component={Reg} />
+        <Stack.Screen options={{ headerBackVisible: false, animation: "fade_from_bottom" }} name='login' component={Login} />
+        <Stack.Screen options={{ headerShown: false }} component={MyTab} name='home' />
+      </Stack.Navigator>
+
+
+    </NavigationContainer>
   );
 }
 const styles = StyleSheet.create({
