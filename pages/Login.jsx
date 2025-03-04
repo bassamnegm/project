@@ -9,11 +9,11 @@ function Login() {
     const auth = useAuth();
     function go() {
         auth.login(user);
-        // nav.navigate('home');
+        nav.navigate('home');
     }
 
     function handleName(val) {
-        setUser({ ...user, username: val })
+        setUser({ ...user, email: val })
     }
     function handelPass(val) {
         setUser({ ...user, password: val })
